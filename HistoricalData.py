@@ -44,7 +44,7 @@ def getHistoricalPrices(coin, period_unit, period_count):
             if len(price_data) >= period_count:
                 for i in price_data:
                     i['time'] = datetime.fromtimestamp(i['time'], local_zone).strftime('%Y-%m-%d %H:%M:%S')
-                
+    
                 returned_data = {'insertion_datetime': datetime.now(local_zone).strftime('%Y-%m-%d %H:%M:%S'),'coin' : coin , 'period_count' : period_count , 'period_unit' : period_unit ,  'prices_data': price_data}
                 data_inserted_id = saveDataToDB(returned_data)
                 return data_inserted_id
